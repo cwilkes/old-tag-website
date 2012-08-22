@@ -4,17 +4,31 @@
     <title>Test page</title>
 </head>
 <body>
-<div id="movies"/>
+<ul id="movies"/>
 
 <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $.getJSON('http://api.stage.tfg.ladro.com/movies', function (data) {
-            $.each(data, function (index) {
-                alert(data[index]);
-            });
-        });
+        $.ajax({    url: 'http://api.stage.tfg.ladro.com/movies',
+                    type: 'GET',
+                    dataType : 'json'
+                })
+                .done(function (data) {
+                    for (var pos in data['movies']) {
+                        var m = data['movies'][pos]
+                        var img = m['images'][0]
+                        var img_link  = '<img src="' + img['url'] + '" width=' + img['width'] + ' height=' + img['height'] + '/>'
+                        $('#movies').append('<li><div class="movie">' + m['title'] + '<br/>' + img_link +  '</div></li>');
+                    }
+                    console.log("success");
+                })
+                .fail(function (jqXHR, textStatus, ex) {
+                    console.log("Request failed: " + jqXHR.readyState + "," + jqXHR.status + ":" + + jqXHR.statusText +","+ jqXHR.responseText + "," + textStatus + "," + ex);
+                })
+                .always(function () {
+                    console.log("complete");
+                });
     });
 </script>
 </body>
