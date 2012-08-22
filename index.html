@@ -1,9 +1,21 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <title>Test page</title>
-  </head>
-    <body>
-        <p>This is a test</p>
-    </body>
+</head>
+<body>
+<div id="movies"/>
+
+<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.getJSON('http://api.stage.tfg.ladro.com/movies', function (data) {
+            $.each(data, function (index) {
+                alert(data[index]);
+            });
+        });
+    });
+</script>
+</body>
 </html>
