@@ -1,3 +1,7 @@
+---
+api_url: http://api.stage.tfg.ladro.com
+---
+
 <!doctype html>
 <html>
 <head>
@@ -5,9 +9,9 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="css/mystyle.css" rel="stylesheet">
-
 </head>
 <body>
+<p>Host: {{ page.api_url}} </p>
 <div id="login-form">
     <form class="form-inline">
         <input type="text" class="input-small" placeholder="Email" id="login-email">
