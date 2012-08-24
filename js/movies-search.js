@@ -41,8 +41,8 @@ $(document).ready(function () {
                 var m = data['movies'][pos];
                 var img = m['images'][0];
                 var divBlock = '<div class="movie" data-title="' + m['title'] + '">' +
-                    '<div class="hover"><img data-movietitle="' + m['title'] + '" data-movieid="' + m['movie_id'] + '" class="movie-image fadeover" src="' + img['url'] + '" width="' + img['width'] +
-                    '" height="' + img['height'] + '"/></div></div>';
+                    '<img data-movietitle="' + m['title'] + '" data-movieid="' + m['movie_id'] + '" class="movie-image fadeover" src="' + img['url'] + '" width="' + img['width'] +
+                    '" height="' + img['height'] + '"/></div>';
                 $(divBlock).appendTo('#movies');
                 get_movie_popup(m['movie_id']);
             };

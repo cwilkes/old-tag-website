@@ -6,10 +6,6 @@
     display: inline;
 }
 
-.movie>div {
-    display: inline;
-}
-
 #top-banner {
 
 }
@@ -20,10 +16,6 @@
     border: thin blue solid;
 }
 
-.hover {
-    background-image: url(/img/dark_plus.png);
-    background-color: #181818;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+.movie {
+    background: #181818 url(/img/dark_plus.png) no-repeat 50% 50%;
 }

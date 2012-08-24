@@ -30,7 +30,6 @@ function setCookieBasedOnServer() {
     xmlhttp.open("GET","/api_host.txt", true);
     xmlhttp.onreadystatechange = function() {
         if(xmlhttp.readyState == 4){
-            console.log("Setting api host to " + xmlhttp.responseText);
             setCookie(cookieName, xmlhttp.responseText, 2);
         }
     };
