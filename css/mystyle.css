@@ -1,0 +1,13 @@
+#login-form {
+    visibility: hidden;
+}
+
+.movie {
+    display: inline;
+    padding: 5px 5px 5px 5px;
+}
+
+.movie-container {
+    display: inline;
+    margin: 10px;
+}

@@ -2,34 +2,57 @@
 <html>
 <head>
     <title>Test page</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/mystyle.css" rel="stylesheet">
+
 </head>
 <body>
-<ul id="movies"/>
+<div id="login-form">
+    <form class="form-inline">
+        <input type="text" class="input-small" placeholder="Email" id="login-email">
+        <input type="password" class="input-small" placeholder="Password" id="login-password">
+        <label class="checkbox">
+            <input type="checkbox"> Remember me
+        </label>
+        <button type="submit" class="btn">Sign in</button>
+    </form>
+</div>
+<div id="logout">
+    <button class="btn">logout</button>
+</div>
+
+<div id="movies-container">
+    <h2>Generic Movies</h2>
+    <div id="movies"></div>
+    <div class="modal hide" id="movie-modal" data-backdrop="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            <h3 id="myModalLabel"></h3>
+        </div>
+        <div class="modal-body"></div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            <button class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+</div>
+
+<div id="my-movies-container">
+    <h2>My Movies</h2>
+    <div id="my-movies"></div>
+</div>
+
+
 
 <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $.ajax({    url: 'http://api.stage.tfg.ladro.com/movies',
-                    type: 'GET',
-                    dataType : 'json'
-                })
-                .done(function (data) {
-                    for (var pos in data['movies']) {
-                        var m = data['movies'][pos]
-                        var img = m['images'][0]
-                        var img_link  = '<img src="' + img['url'] + '" width=' + img['width'] + ' height=' + img['height'] + '/>'
-                        $('#movies').append('<li><div class="movie">' + m['title'] + '<br/>' + img_link +  '</div></li>');
-                    }
-                    console.log("success");
-                })
-                .fail(function (jqXHR, textStatus, ex) {
-                    console.log("Request failed: " + jqXHR.readyState + "," + jqXHR.status + ":" + + jqXHR.statusText +","+ jqXHR.responseText + "," + textStatus + "," + ex);
-                })
-                .always(function () {
-                    console.log("complete");
-                });
-    });
-</script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/login-form.js"></script>
+<script type="text/javascript" src="js/movies-search.js"></script>
+<script type="text/javascript" src="js/movies-my.js"></script>
+<script type="text/javascript" src="js/jquery.hoverdelay.js"></script>
+<script type="text/javascript" src="js/jstorage.min.js"></script>
+
 </body>
 </html>
