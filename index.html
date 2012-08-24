@@ -8,51 +8,56 @@
     <script type="text/javascript" src="js/api_host_setter.js"></script>
 </head>
 <body>
-
-<div id="login-form">
-    <form class="form-inline">
-        <input type="text" class="input-small" placeholder="Email" id="login-email">
-        <input type="password" class="input-small" placeholder="Password" id="login-password">
-        <label class="checkbox">
-            <input type="checkbox"> Remember me
-        </label>
-        <button type="submit" class="btn">Sign in</button>
-    </form>
-</div>
-<div id="logout">
-    <button class="btn"></button>
-</div>
-
-<div id="movies-container">
-    <h2>Generic Movies</h2>
-    <div id="movies"></div>
-    <div class="modal hide" id="movie-modal" data-backdrop="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-            <h3 id="myModalLabel"></h3>
+<div class="container">
+    <div class="row">
+        <div class="offset3" id="login-form">
+            <form class="form-inline">
+                <input type="text" class="input-small" placeholder="Email" id="login-email">
+                <input type="password" class="input-small" placeholder="Password" id="login-password">
+                <label class="checkbox">
+                    <input type="checkbox"> Remember me
+                </label>
+                <button type="submit" class="btn">Sign in</button>
+            </form>
         </div>
-        <div class="modal-body"></div>
-        <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-            <button class="btn btn-primary">Save changes</button>
+        <div class="offset3" id="logout">
+            <button class="btn"></button>
         </div>
     </div>
+
+    <div class="row" id="movies-container">
+        <h2>Generic Movies</h2>
+
+        <div id="movies"></div>
+        <div class="modal hide" id="movie-modal" data-backdrop="" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                <h3 id="myModalLabel"></h3>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="my-movies-container">
+        <h2>My Movies</h2>
+
+        <div id="my-movies"></div>
+    </div>
+
 </div>
-
-<div id="my-movies-container">
-    <h2>My Movies</h2>
-    <div id="my-movies"></div>
-</div>
-
-
 
 <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.hoverdelay.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script>
 <script type="text/javascript" src="js/login-form.js"></script>
 <script type="text/javascript" src="js/movies-search.js"></script>
 <script type="text/javascript" src="js/movies-my.js"></script>
-<script type="text/javascript" src="js/jquery.hoverdelay.js"></script>
 
 </body>
 </html>

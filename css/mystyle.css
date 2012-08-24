@@ -4,10 +4,26 @@
 
 .movie {
     display: inline;
-    padding: 5px 5px 5px 5px;
 }
 
-.movie-container {
+.movie>div {
     display: inline;
-    margin: 10px;
+}
+
+#top-banner {
+
+}
+
+
+#top-banner div {
+    display: inline;
+    border: thin blue solid;
+}
+
+.hover {
+    background-image: url(/img/dark_plus.png);
+    background-color: #181818;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }

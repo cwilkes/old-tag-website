@@ -1,16 +1,17 @@
 
 $(document).ready(function () {
     if ($.cookie('secure_token') == undefined) {
+        $('#login-form').css('display', 'inline');
         $('#login-form').css('visibility', 'visible');
-        $('#logout').css('visibility', 'hidden');
+        $('#logout').css('display', 'none');
     } else {
-        $('#logout').css('visibility', 'visible');
+        $('#logout').css('display', 'inline');
         $('#logout .btn').html('Logout, ' + $.cookie('first_name'));
-        $('#login-form').css('visibility', 'hidden');
+        $('#logout').css('visibility', 'visible');
+        $('#login-form').css('display', 'none');
     };
     var login_url = $.cookie('tfg_api_host') + '/authorize/user';
     $("#login-form").submit(function (event) {
-        $('.submit-button').attr("disabled", "disabled");
         $.ajax({    url: login_url,
             type:'POST',
             dataType:'json', xhrFields:{

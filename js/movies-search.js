@@ -9,24 +9,28 @@ $(document).ready(function () {
     var movies_url = $.cookie('tfg_api_host') + '/movies';
     var movies_popup_url = movies_url + '/popup/';
     var cache = {};
-    function get_movie_popup( movie_id ){
+
+    function get_movie_popup(movie_id) {
         var value = cache[movie_id];
-        if (! value) {
-            $.ajax({ url: movies_popup_url + movie_id,
+        if (!value) {
+            $.ajax({ url:movies_popup_url + movie_id,
                 type:'GET',
                 dataType:'json', xhrFields:{
                     withCredentials:true
                 }
-            }). success( function(resp) {
+            }).success(function (resp) {
                     value = resp['html'];
                     cache[movie_id] = value;
-            });
-        };
+                });
+        }
+        ;
         return value;
-    };
+    }
+
+    ;
 
 
-    $.ajax({    url: movies_url,
+    $.ajax({    url:movies_url,
         type:'GET',
         dataType:'json', xhrFields:{
             withCredentials:true
@@ -36,23 +40,21 @@ $(document).ready(function () {
             for (var pos in data['movies']) {
                 var m = data['movies'][pos];
                 var img = m['images'][0];
-                var divBlock = '<div class="movie-container"><div class="movie" data-title="' + m['title'] + '">' +
-                    '<img data-movietitle="' +  m['title'] + '" data-movieid="' + m['movie_id'] + '" class="movie-image" src="' + img['url'] + '" width="' + img['width'] +
+                var divBlock = '<div class="movie" data-title="' + m['title'] + '">' +
+                    '<div class="hover"><img data-movietitle="' + m['title'] + '" data-movieid="' + m['movie_id'] + '" class="movie-image fadeover" src="' + img['url'] + '" width="' + img['width'] +
                     '" height="' + img['height'] + '"/></div></div>';
                 $(divBlock).appendTo('#movies');
                 get_movie_popup(m['movie_id']);
-            }
-            $('.movie-image').hover(function (e) {
-                var my_data = get_movie_popup($(this).data('movieid'));
-                $('#movie-modal .modal-body').html(my_data);
-                $('#myModalLabel').html($(this).data('movietitle'));
-                $('#movie-modal').modal();
-            }, function(e) {
-                    $('#movie-modal .modal-body').html('');
-                    $('#myModalLabel').html('');
-                    $('#movie-modal').modal('hide');
-                }
-            );
+            };
+            $(".fadeover").hover(function() {
+                $(this).animate({
+                    opacity: 0.2
+                });
+            }, function() {
+                $(this).stop(true, true).animate({
+                    opacity: 1
+                });
+            });
         })
         .fail(function (jqXHR, textStatus, ex) {
             console.log("Request failed: " + jqXHR.readyState + "," + jqXHR.status + ":" + +jqXHR.statusText + "," + jqXHR.responseText + "," + textStatus + "," + ex);
@@ -60,7 +62,6 @@ $(document).ready(function () {
         .always(function () {
             console.log("complete");
         });
-
 
 
 });
