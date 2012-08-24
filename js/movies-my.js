@@ -6,8 +6,9 @@
  * To change this template use File | Settings | File Templates.
  */
 $(document).ready(function () {
+    var my_movies_url = $('#api_url').val() + '/movies/my';
     if ($.cookie('secure_token') != undefined) {
-        $.ajax({    url:'http://api.stage.tfg.ladro.com/movies/my',
+        $.ajax({    url: my_movies_url,
             type:'GET',
             dataType:'json', xhrFields:{
                 withCredentials:true

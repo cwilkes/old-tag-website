@@ -11,7 +11,9 @@ api_url: http://api.stage.tfg.ladro.com
     <link href="css/mystyle.css" rel="stylesheet">
 </head>
 <body>
-<p>Host: {{ page.api_url}} </p>
+
+<input type="hidden" id="api_url" value="{{page.api_url}}"/>
+
 <div id="login-form">
     <form class="form-inline">
         <input type="text" class="input-small" placeholder="Email" id="login-email">
@@ -23,7 +25,7 @@ api_url: http://api.stage.tfg.ladro.com
     </form>
 </div>
 <div id="logout">
-    <button class="btn">logout</button>
+    <button class="btn"></button>
 </div>
 
 <div id="movies-container">
@@ -56,7 +58,6 @@ api_url: http://api.stage.tfg.ladro.com
 <script type="text/javascript" src="js/movies-search.js"></script>
 <script type="text/javascript" src="js/movies-my.js"></script>
 <script type="text/javascript" src="js/jquery.hoverdelay.js"></script>
-<script type="text/javascript" src="js/jstorage.min.js"></script>
 
 </body>
 </html>

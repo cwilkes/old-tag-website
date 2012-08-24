@@ -6,11 +6,13 @@
  * To change this template use File | Settings | File Templates.
  */
 $(document).ready(function () {
+    var movies_url = $('#api_url').val() + '/movies';
+    var movies_popup_url = movies_url + '/popup/';
     var cache = {};
     function get_movie_popup( movie_id ){
         var value = cache[movie_id];
         if (! value) {
-            $.ajax({ url:'http://api.stage.tfg.ladro.com/movies/popup/' + movie_id,
+            $.ajax({ url: movies_popup_url + movie_id,
                 type:'GET',
                 dataType:'json', xhrFields:{
                     withCredentials:true
@@ -24,7 +26,7 @@ $(document).ready(function () {
     };
 
 
-    $.ajax({    url:'http://api.stage.tfg.ladro.com/movies',
+    $.ajax({    url: movies_url,
         type:'GET',
         dataType:'json', xhrFields:{
             withCredentials:true

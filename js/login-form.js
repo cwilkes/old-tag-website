@@ -1,17 +1,23 @@
 
 $(document).ready(function () {
     if ($.cookie('secure_token') == undefined) {
-        $('#login-form').css('visibility', 'visible')
-    }
+        $('#login-form').css('visibility', 'visible');
+        $('#logout').css('visibility', 'hidden');
+    } else {
+        $('#logout').css('visibility', 'visible');
+        $('#logout .btn').html('Logout, ' + $.cookie('first_name'));
+        $('#login-form').css('visibility', 'hidden');
+    };
+    var login_url = $('#api_url').val() + '/authorize/user';
     $("#login-form").submit(function (event) {
         $('.submit-button').attr("disabled", "disabled");
-        $.ajax({    url:'http://api.stage.tfg.ladro.com/authorize/user',
+        $.ajax({    url: login_url,
             type:'POST',
             dataType:'json', xhrFields:{
                 withCredentials:true
             },
             data:{ 'email':$('#login-email').val(), 'password':$('#login-password').val() }
-        }).done(function (data) {
+            }).done(function (data) {
                 location.reload();
             })
             .fail(function (jqXHR, textStatus, ex) {
@@ -24,4 +30,5 @@ $(document).ready(function () {
         $.removeCookie('secure_token');
         location.reload();
     });
+
 });
