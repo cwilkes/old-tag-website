@@ -10,7 +10,7 @@ $(document).ready(function () {
     function get_movie_popup( movie_id ){
         var value = cache[movie_id];
         if (! value) {
-            $.ajax({ url:'http://localhost:5000/movies/popup/' + movie_id,
+            $.ajax({ url:'http://api.stage.tfg.ladro.com/movies/popup/' + movie_id,
                 type:'GET',
                 dataType:'json', xhrFields:{
                     withCredentials:true
@@ -24,7 +24,7 @@ $(document).ready(function () {
     };
 
 
-    $.ajax({    url:'http://localhost:5000/movies',
+    $.ajax({    url:'http://api.stage.tfg.ladro.com/movies',
         type:'GET',
         dataType:'json', xhrFields:{
             withCredentials:true

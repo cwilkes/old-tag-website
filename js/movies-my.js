@@ -7,7 +7,7 @@
  */
 $(document).ready(function () {
     if ($.cookie('secure_token') != undefined) {
-        $.ajax({    url:'http://localhost:5000/movies/my',
+        $.ajax({    url:'http://api.stage.tfg.ladro.com/movies/my',
             type:'GET',
             dataType:'json', xhrFields:{
                 withCredentials:true

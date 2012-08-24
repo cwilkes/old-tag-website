@@ -5,7 +5,7 @@ $(document).ready(function () {
     }
     $("#login-form").submit(function (event) {
         $('.submit-button').attr("disabled", "disabled");
-        $.ajax({    url:'http://localhost:5000/authorize/user',
+        $.ajax({    url:'http://api.stage.tfg.ladro.com/authorize/user',
             type:'POST',
             dataType:'json', xhrFields:{
                 withCredentials:true
