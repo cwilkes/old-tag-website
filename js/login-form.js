@@ -8,7 +8,7 @@ $(document).ready(function () {
         $('#logout .btn').html('Logout, ' + $.cookie('first_name'));
         $('#login-form').css('visibility', 'hidden');
     };
-    var login_url = $('#api_url').val() + '/authorize/user';
+    var login_url = $.cookie('tfg_api_host') + '/authorize/user';
     $("#login-form").submit(function (event) {
         $('.submit-button').attr("disabled", "disabled");
         $.ajax({    url: login_url,

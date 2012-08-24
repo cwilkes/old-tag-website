@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 $(document).ready(function () {
-    var movies_url = $('#api_url').val() + '/movies';
+    var movies_url = $.cookie('tfg_api_host') + '/movies';
     var movies_popup_url = movies_url + '/popup/';
     var cache = {};
     function get_movie_popup( movie_id ){

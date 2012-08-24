@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Change your API host</title>
+    <script type="text/javascript" src="js/api_host_setter.js"></script>
+</head>
+<body>
+
+<form id="switch-host">
+    <input type="text" id="api_host"/>
+    <input type="submit" value="Change value"/>
+</form>
+
+<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var cur_host = $.cookie('tfg_api_host');
+        $('#api_host').attr('value', cur_host);
+        $("#switch-host").submit(function (event) {
+            var new_host = $('#api_host').attr('value');
+            alert("NH " + new_host);
+            if (new_host == "") {
+                console.log("Removing tfg api host");
+                $.removeCookie('tfg_api_host');
+            } else {
+                console.log("Setting tfg api host to " + new_host);
+                $.cookie('tfg_api_host', new_host);
+            }
+            return false;
+        });
+    });
+</script>
+
+</body>
+</html>
