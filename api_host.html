@@ -20,7 +20,6 @@
         $('#api_host').attr('value', cur_host);
         $("#switch-host").submit(function (event) {
             var new_host = $('#api_host').attr('value');
-            alert("NH " + new_host);
             if (new_host == "") {
                 console.log("Removing tfg api host");
                 $.removeCookie('tfg_api_host');

@@ -18,7 +18,7 @@ $(document).ready(function () {
                 for (var pos in data['movies']) {
                     var m = data['movies'][pos]
                     var link = '<a href="/view/' + m['movie_id'] + '">' + m['movie_title'] + '</a>';
-                    $('#my-movies').append('<div class="movie">' + link + '</div>');
+                    $('#my-movies').append('<div class="movie-paid">' + link + '</div>');
                 }
                 console.log("success");
             })

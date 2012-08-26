@@ -6,17 +6,15 @@
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="css/mystyle.css" rel="stylesheet">
     <script type="text/javascript" src="js/api_host_setter.js"></script>
+    <link rel=icon href=img/favicon_16x16.png sizes="16x16" type="image/png">
 </head>
 <body>
 <div class="container">
-    <div class="row">
+    <div class="row-fluid">
         <div class="offset3" id="login-form">
             <form class="form-inline">
                 <input type="text" class="input-small" placeholder="Email" id="login-email">
                 <input type="password" class="input-small" placeholder="Password" id="login-password">
-                <label class="checkbox">
-                    <input type="checkbox"> Remember me
-                </label>
                 <button type="submit" class="btn">Sign in</button>
             </form>
         </div>
@@ -25,7 +23,7 @@
         </div>
     </div>
 
-    <div class="row" id="movies-container">
+    <div class="row-fluid" id="movies-container">
         <h2>Generic Movies</h2>
 
         <div id="movies"></div>
@@ -43,7 +41,7 @@
         </div>
     </div>
 
-    <div class="row" id="my-movies-container">
+    <div class="row-fluid" id="my-movies-container">
         <h2>My Movies</h2>
 
         <div id="my-movies"></div>
